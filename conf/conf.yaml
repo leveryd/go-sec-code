@@ -1,0 +1,5 @@
+# yamllint disable rule:comments-indentation
+conf:
+  listen:
+    # host: 127.0.0.1
+    port: 9000            # The port on which the `Manager API` should listen.
