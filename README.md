@@ -17,3 +17,5 @@
 // 不保证api接口稳定性，请自行测试
 
 部分代码使用了 [copilot](https://github.com/github/copilot-docs) 自动生成。
+
+[审计规则和工具](https://gist.github.com/leveryd/51b1ec0130d4b4e9df76d9413ae41239)
