@@ -32,7 +32,8 @@ func InitRouter(e *gin.Engine) {
 
 	// research
 	e.GET("/research/realip", research.RealIP)
-	e.GET("/research/error", research.NoHandleError)
+	e.GET("/research/panic", research.Panic)
+	e.GET("/research/fatal_error", research.DeepRecursive)
 	e.GET("/research/goodman", research.ConcurrentSecurity)
 	e.GET("/research/mistake/:dir/*filename", research.MistakeCleanPath)
 
