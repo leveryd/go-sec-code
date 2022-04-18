@@ -36,6 +36,8 @@ func InitRouter(e *gin.Engine) {
 	e.GET("/research/fatal_error", research.DeepRecursive)
 	e.GET("/research/goodman", research.ConcurrentSecurity)
 	e.GET("/research/mistake/:dir/*filename", research.MistakeCleanPath)
+	e.POST("/research/http/read_body", research.ReadBody)
+	e.GET("/research/http/read_body_flag", research.PrintFlag)
 
 	//e.Static("/files/", "/etc/")
 	e.Use(static.Serve("/files/", static.LocalFile("/etc", false)))
