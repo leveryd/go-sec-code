@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"os/exec"
 	"regexp"
-	"strings"
 )
 
 func DigHost(c *gin.Context) {
@@ -26,9 +25,7 @@ func DigHost(c *gin.Context) {
 		}
 	}
 
-	command := "dig " + host
-	commandResults, err := exec.Command(strings.Split(command, " ")[0], strings.Split(command, " ")[1:]...).Output()
-	//commandResults, err := exec.Command(command).Output()	//
+	commandResults, err := exec.Command("dig", host).Output()
 
 	if err != nil {
 		c.JSON(200, "fail to execute")
@@ -36,6 +33,8 @@ func DigHost(c *gin.Context) {
 	}
 	c.Writer.Write(commandResults)
 }
+
+// /safe/dig?host=www.baidu.com
 
 // https://github.com/leveryd/go-sec-code/issues/2
 // 即使没有使用bash -c，也需要注意命令可能有参数能够被用来实施攻击
