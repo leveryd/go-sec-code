@@ -1,3 +1,6 @@
+# 挖过的漏洞
+[CVE-2022-24863 swagger组件DoS](https://github.com/swaggo/http-swagger/security/advisories/GHSA-xg75-q3q5-cqmv)
+
 # Go漏洞靶场
 "漏洞类型"包括：
 * 任意文件读取
