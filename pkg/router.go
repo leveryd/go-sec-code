@@ -29,6 +29,7 @@ func InitRouter(e *gin.Engine) {
 	e.GET("/safe/fileread", safe.FileRead)
 	e.GET("/safe/dig", safe.DigHost)
 	e.POST("/safe/upload", safe.GoodUploadFile)
+	e.GET("/safe/proxy", safe.GoodHTTPGet)
 
 	// research
 	e.GET("/research/realip", research.RealIP)
