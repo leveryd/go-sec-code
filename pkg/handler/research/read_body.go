@@ -55,6 +55,6 @@ func PrintFlag(c *gin.Context) {
 // doc/body读取.md
 
 /*
-curl 127.0.0.1:8089/research/http/read_body -d 'xxxxxxxxxx' -H 'Content-Length:20'
+curl 127.0.0.1:8089/research/http/read_body -d '0123456789' -H 'Content-Length:20'
 curl 127.0.0.1:8089/research/http/read_body_flag
 */

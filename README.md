@@ -13,12 +13,16 @@
 * unsafe: 常见的安全问题
 * safe: 对比"unsafe"安全的编码方式
 
+# 资源
+* [腾讯的Go安全编码指南](https://github.com/Tencent/secguide/blob/main/Go安全指南.md)
+* [审计规则和工具](https://gist.github.com/leveryd/51b1ec0130d4b4e9df76d9413ae41239)
+
 # 报告过的漏洞
 * [CVE-2022-24863 swagger组件DoS](https://github.com/swaggo/http-swagger/security/advisories/GHSA-xg75-q3q5-cqmv)
+* [CVE-2022-25757 json实现差异](https://www.openwall.com/lists/oss-security/2022/03/28/2)
 
 # 其他
 // 不保证api接口稳定性，请自行测试
 
 部分代码使用了 [copilot](https://github.com/github/copilot-docs) 自动生成。
 
-[审计规则和工具](https://gist.github.com/leveryd/51b1ec0130d4b4e9df76d9413ae41239)
