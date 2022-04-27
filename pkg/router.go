@@ -24,6 +24,7 @@ func InitRouter(e *gin.Engine) {
 	e.POST("/unsafe/decompress_tar", unsafe.BadTarDecompress)
 	e.GET("/unsafe/ssti1", unsafe.BadTemplate1)
 	e.POST("/unsafe/ssti2", unsafe.BadTemplate2)
+	e.GET("/unsafe/query_user", unsafe.BadQueryUser)
 
 	// safe
 	e.GET("/safe/fileread", safe.FileRead)
