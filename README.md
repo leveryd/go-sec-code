@@ -16,6 +16,7 @@
 # 资源
 * [腾讯的Go安全编码指南](https://github.com/Tencent/secguide/blob/main/Go安全指南.md)
 * [审计规则和工具](https://gist.github.com/leveryd/51b1ec0130d4b4e9df76d9413ae41239)
+* [怎么做go安全研究](https://gist.github.com/leveryd/8581605b0f3532f8284bcfc4128f708c)
 
 # 报告过的漏洞
 * [CVE-2022-24863 swagger组件DoS](https://github.com/swaggo/http-swagger/security/advisories/GHSA-xg75-q3q5-cqmv)
