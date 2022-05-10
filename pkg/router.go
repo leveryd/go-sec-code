@@ -40,6 +40,7 @@ func InitRouter(e *gin.Engine) {
 	e.GET("/research/mistake/:dir/*filename", research.MistakeCleanPath)
 	e.POST("/research/http/read_body", research.ReadBody)
 	e.GET("/research/http/read_body_flag", research.PrintFlag)
+	e.POST("/research/http/unzip", research.GunzipHandler)
 
 	//e.Static("/files/", "/etc/")
 	e.Use(static.Serve("/files/", static.LocalFile("/etc", false)))
