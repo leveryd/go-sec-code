@@ -7,7 +7,6 @@ import (
 )
 
 var (
-	ConfigFile = ""
 	ServerHost = "0.0.0.0"
 	ServerPort = 8089
 
@@ -29,7 +28,7 @@ func set(variable *string, envName string) {
 	}
 }
 
-func init() {
+func buildDataSourceName() {
 	set(&username, "username")
 	set(&password, "password")
 	set(&protocol, "protocol")
@@ -41,6 +40,10 @@ func init() {
 	} else {
 		DataSourceName = username + ":" + password + "@" + protocol + "(" + address + ")/" + dbname + "?charset=utf8&multiStatements=true" // 允许执行多条语句 https://github.com/go-sql-driver/mysql#multistatements
 	}
+}
+
+func initDB() {
+	buildDataSourceName()
 
 	db, err := sql.Open("mysql", DataSourceName)
 	defer func(db *sql.DB) {
@@ -94,4 +97,8 @@ func init() {
 			return
 		}
 	}
+}
+
+func init() {
+	go initDB()
 }
