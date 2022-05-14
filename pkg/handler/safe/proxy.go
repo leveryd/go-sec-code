@@ -16,15 +16,23 @@ var noAvailableIP = errors.New("no available ip")
 var noSupportedProtocol = errors.New("no supported protocol")
 
 func isInternalIp(ip net.IP) bool {
-	if ip.IsLoopback() || ip.IsLinkLocalMulticast() || ip.IsLinkLocalUnicast() {
+	// 可能的更全的黑名单见 https://github.com/leveryd/go-sec-code/issues/3
+	if ip.IsLoopback() || // 127.0.0.0/8
+		ip.IsLinkLocalMulticast() || // 224.0.0.0/24
+		ip.IsLinkLocalUnicast() { // 169.254.0.0/16
 		return true
 	}
-	if ip4 := ip.To4(); ip4 != nil {
-		return ip4[0] == 10 || // 10.0.0.0/8
-			(ip4[0] == 172 && ip4[1] >= 16 && ip4[1] <= 31) || // 172.16.0.0/12
-			(ip4[0] == 192 && ip4[1] == 168) // 192.168.0.0/16
+
+	// 10.0.0.0/8
+	// 172.16.0.0/12
+	// 192.168.0.0/16
+	if ip.IsPrivate() {
+		return true
 	}
-	// ip6 := ip.To16()
+
+	if ip4 := ip.To4(); ip4 != nil {
+		return ip4[0] == 0 // 0.0.0.0/8
+	}
 	return false
 }
 
