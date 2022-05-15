@@ -3,13 +3,15 @@ package core
 import (
 	"github.com/gin-gonic/gin"
 	"net"
+	"net/http"
 	"strconv"
 	"vuln-go-app/pkg"
 	"vuln-go-app/pkg/conf"
 )
 
 type Server struct {
-	e *gin.Engine
+	e      *gin.Engine
+	Server *http.Server
 }
 
 func NewServer() *Server {
@@ -34,7 +36,16 @@ func (s *Server) InitRouter() {
 func (s *Server) Start() {
 
 	addr := net.JoinHostPort(conf.ServerHost, strconv.Itoa(conf.ServerPort))
-	s.e.Run(addr)
+	server := http.Server{
+		Addr:    addr,
+		Handler: s.e,
+	}
+	s.Server = &server
 
-	//http.ListenAndServe(addr, nil)
+	// KILL信号会让ListenAndServe返回err
+	//err := server.ListenAndServe()
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	server.ListenAndServe()
 }

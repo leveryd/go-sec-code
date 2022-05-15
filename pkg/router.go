@@ -15,6 +15,7 @@ func InitRouter(e *gin.Engine) {
 
 	e.GET("/ping", handler.Ping)
 	e.POST("/user/login", handler.Login)
+	e.GET("/tests/longtask", handler.SimulateLongTask)
 
 	// vulnerable
 	e.GET("/unsafe/dig", unsafe.DigHost)
