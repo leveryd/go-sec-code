@@ -21,6 +21,7 @@
 # 报告过的漏洞
 * [CVE-2022-24863 swagger组件DoS](https://github.com/swaggo/http-swagger/security/advisories/GHSA-xg75-q3q5-cqmv)
 * [CVE-2022-25757 json实现差异](https://www.openwall.com/lists/oss-security/2022/03/28/2)
+* [CNVD-2022-51761 api/rpc框架gozero的dos问题](https://www.cnvd.org.cn/flaw/show/CNVD-2022-51761)
 
 # 其他
 // 不保证api接口稳定性，请自行测试
